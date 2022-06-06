@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "dima",
+      "avatar": "",
+      "money": 15000000,
+      "login": "dima",
+      "password": "123",
+      "roles": ["admin"],
+      "transactions": []
+    },
+    {
+      "id": 2,
+      "name": "json-server",
+      "avatar": "",
+      "money": 15000000,
+      "login": "dima2",
+      "password": "123",
+      "roles": ["player"],
+      "transactions": []
+    },
+    {
+      "id": 3,
+      "name": "json-server",
+      "avatar": "",
+      "money": 15000000,
+      "login": "dima3",
+      "password": "123",
+      "roles": ["player"],
+      "transactions": []
+    },
+    {
+      "id": 4,
+      "name": "json-server",
+      "avatar": "",
+      "money": 15000000,
+      "login": "dima4",
+      "password": "123",
+      "roles": ["player"],
+      "transactions": []
+    }
+  ],
+  "bank":
+    {
+      "id": 1,
+      "name": "json-server",
+      "avatar": "",
+      "money": 10000000000,
+      "transactions": []
+    }
+}

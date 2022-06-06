@@ -1,0 +1,9 @@
+<div class="container py-3">
+  <div class="d-flex flex-wrap justify-content-around">
+    <div *ngFor="let user of users" class="p-2">
+      <app-user [user]="user"></app-user>
+    </div>
+
+  </div>
+  <app-money-transferring [users]="users" ></app-money-transferring>
+</div>

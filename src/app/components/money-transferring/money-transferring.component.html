@@ -1,0 +1,57 @@
+<div class="transaction_wrapper" class="py-3 mt-3 border-top">
+  <h3 class="transaction_title">Money transaction</h3>
+  <div class="d-flex justify-content-around align-items-center pt-3">
+    <div class="transaction_payer transaction_box d-flex justify-content-around align-items-center">
+      <div *ngIf="!payer" class="transaction_dropdown">
+        <span class="text-center">Select player</span>
+        <div class="transaction_popup-menu">
+          <ul>
+          <li class="" (click)="choosePayer(user)"  *ngFor="let user of users"  >
+            <p class="transaction_popup-item" *ngIf="user != recipient">{{ user.name  | uppercase }}</p>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <app-user *ngIf="payer" [user]="payer"></app-user>
+    </div>
+
+    <div class="transaction_recipient transaction_box d-flex justify-content-around align-items-center">
+      <div *ngIf="!recipient" class="transaction_dropdown"><span class="text-center">Select player</span>
+        <div class="transaction_popup-menu">
+          <ul>
+            <li class="" (click)="chooseRecipient(user)"  *ngFor="let user of users"  >
+              <p class="transaction_popup-item" *ngIf="user != payer">{{ user.name  | uppercase }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <app-user *ngIf="recipient" [user]="recipient"></app-user>
+    </div>
+  </div>
+
+  <form class="w-100 d-flex align-items-center flex-column my-4" >
+    <div class="position-relative transaction_input-wrapper">
+      <input type="number"
+             class="transaction_input"
+             [(ngModel)]="money"
+             name="money"  >
+    </div>
+  <div class="h-100 d-flex justify-content-center mt-3">
+
+    <button
+      class="btn btn-success px-4 mx-2"
+      [disabled]="!payer || !recipient || !money || payer.money < money"
+      (click)="transferMoney()"
+    >
+      <span>Pay</span>
+    </button>
+    <button
+      class="btn btn-danger px-4 mx-2"
+      [disabled]="!payer && !recipient"
+      (click)="clearChosen()"
+    >
+      <span>Clear</span>
+    </button>
+  </div>
+  </form>
+</div>
