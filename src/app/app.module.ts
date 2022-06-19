@@ -9,6 +9,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './components/user/user.component';
 import { MoneyTransferringComponent } from './components/money-transferring/money-transferring.component';
 import {FormsModule} from "@angular/forms";
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -18,12 +23,14 @@ import {FormsModule} from "@angular/forms";
     FooterComponent,
     UserComponent,
     MoneyTransferringComponent,
+    LoginPageComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
