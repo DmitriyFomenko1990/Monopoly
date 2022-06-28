@@ -1,0 +1,60 @@
+<div class="container">
+  <form *ngIf="loginForm" class="d-flex flex-column my-4 container rounded-2 p-3 auth-form" >
+    <div class="position-relative d-flex flex-column mb-3">
+      <input type="email"
+             class="login_input rounded-3 p-2"
+             [(ngModel)]="loginModel.login"
+             required
+             placeholder="Email"
+             name="login"  />
+    </div>
+    <div class="position-relative d-flex flex-column mb-3">
+      <input type="password"
+             class="password_input rounded-3 p-2"
+             [(ngModel)]="loginModel.password"
+             required
+             placeholder="Password"
+             name="password"  />
+    </div>
+    <button class="btn btn-success" (click)="login()">Login</button>
+    <p class="mx-auto my-3">Don't have an account?</p>
+    <button class="btn btn-success" (click)="loginForm=!loginForm">SingIn</button>
+  </form>
+
+  <form *ngIf="!loginForm" class="d-flex flex-column my-4 container rounded-2 p-3 auth-form" >
+    <div class="position-relative d-flex flex-column mb-3">
+      <input type="email"
+             class="login_input rounded-3 p-2"
+             [(ngModel)]="singinModel.login"
+             required
+             placeholder="Email"
+             name="login" />
+    </div>
+    <div class="position-relative d-flex flex-column mb-3">
+      <input type="password"
+             class="rounded-3 p-2"
+             [(ngModel)]="singinModel.password"
+             required
+             placeholder="Password"
+             name="password"  />
+    </div>
+    <div class="position-relative d-flex flex-column mb-3">
+      <input class="rounded-3 p-2"
+             [(ngModel)]="singinModel.name"
+             required
+             placeholder="Name"
+             name="name"  />
+    </div>
+    <div class="position-relative d-flex align-items-end mb-3">
+      <label class="mb-0">Sex:</label>
+      <input id="male" class="mx-2 my-0" type="radio" [(ngModel)]="singinModel.sex"  name="sex" value="male">
+      <label for="male" class="auth-form__radio-btn mb-0">Male</label>
+      <input id="female" class="mx-2 my-0" type="radio" [(ngModel)]="singinModel.sex"  name="sex" value="female">
+      <label for="female" class="auth-form__radio-btn mb-0">Female</label>
+    </div>
+    <button class="btn btn-success" (click)="singIn()">SingIn</button>
+    <p class="mx-auto my-3">Already have an account?</p>
+    <button class="btn btn-success" (click)="loginForm=!loginForm">Login</button>
+  </form>
+
+</div>

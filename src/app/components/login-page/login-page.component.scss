@@ -1,0 +1,17 @@
+.auth-form {
+  width: 50%;
+  &__radio-btn {
+    cursor: pointer;
+  }
+}
+
+.auth-form input {
+  background-color: #ffffff;
+  border: 1px solid;
+}
+
+@media screen and (max-width: 768px) {
+  .auth-form {
+    width: 80%;
+  }
+}
