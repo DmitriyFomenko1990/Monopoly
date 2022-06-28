@@ -1,6 +1,5 @@
-<div >
+<div>
   <app-header></app-header>
-  <app-game-page *ngIf="isAuth"></app-game-page>
-  <app-login-page *ngIf="!isAuth"></app-login-page>
+  <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>

@@ -28,8 +28,8 @@ export class MoneyTransferringComponent implements OnInit {
   }
 
   transferMoney() {
-    if (this.payer && this.money) this.payer.money = this.payer.money - this.money;
-    if (this.recipient && this.money) this.recipient.money = this.recipient.money + this.money;
+    if (this.payer?.money && this.money) this.payer.money = this.payer.money - this.money;
+    if (this.recipient?.money && this.money) this.recipient.money = this.recipient.money + this.money;
     this.clearChosen();
     this.money = null;
   }

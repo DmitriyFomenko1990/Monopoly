@@ -7,7 +7,9 @@
       "money": 15000000,
       "login": "dima",
       "password": "123",
-      "roles": ["admin"],
+      "roles": [
+        "admin"
+      ],
       "transactions": []
     },
     {
@@ -17,7 +19,9 @@
       "money": 15000000,
       "login": "dima2",
       "password": "123",
-      "roles": ["player"],
+      "roles": [
+        "player"
+      ],
       "transactions": []
     },
     {
@@ -27,7 +31,9 @@
       "money": 15000000,
       "login": "dima3",
       "password": "123",
-      "roles": ["player"],
+      "roles": [
+        "player"
+      ],
       "transactions": []
     },
     {
@@ -37,16 +43,24 @@
       "money": 15000000,
       "login": "dima4",
       "password": "123",
-      "roles": ["player"],
+      "roles": [
+        "player"
+      ],
       "transactions": []
+    },
+    {
+      "sex": "male",
+      "password": "123",
+      "login": "fomenkodmitriy1990@mail.ru",
+      "name": "Дмитрий",
+      "id": 10
     }
   ],
-  "bank":
-    {
-      "id": 1,
-      "name": "json-server",
-      "avatar": "",
-      "money": 10000000000,
-      "transactions": []
-    }
+  "bank": {
+    "id": 1,
+    "name": "json-server",
+    "avatar": "",
+    "money": 10000000000,
+    "transactions": []
+  }
 }

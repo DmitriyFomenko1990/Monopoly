@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { GamePageComponent } from './components/game-page/game-page.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -11,9 +9,9 @@ import { MoneyTransferringComponent } from './components/money-transferring/mone
 import {FormsModule} from "@angular/forms";
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ToastrModule} from "ngx-toastr";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,13 +22,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     UserComponent,
     MoneyTransferringComponent,
     LoginPageComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

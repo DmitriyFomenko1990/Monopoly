@@ -19,9 +19,11 @@
       <div *ngIf="!recipient" class="transaction_dropdown"><span class="text-center">Select player</span>
         <div class="transaction_popup-menu">
           <ul>
-            <li class="" (click)="chooseRecipient(user)"  *ngFor="let user of users"  >
-              <p class="transaction_popup-item" *ngIf="user != payer">{{ user.name  | uppercase }}</p>
-            </li>
+            <a href="">
+              <li class="" (click)="chooseRecipient(user)"  *ngFor="let user of users"  >
+                <p class="transaction_popup-item" *ngIf="user != payer">{{ user.name  | uppercase }}</p>
+              </li>
+            </a>
           </ul>
         </div>
       </div>
@@ -40,7 +42,7 @@
 
     <button
       class="btn btn-success px-4 mx-2"
-      [disabled]="!payer || !recipient || !money || payer.money < money"
+      [disabled]="!payer || !recipient || !money || payer.money && (payer.money < money)"
       (click)="transferMoney()"
     >
       <span>Pay</span>

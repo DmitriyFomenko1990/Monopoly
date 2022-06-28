@@ -2,7 +2,7 @@ export interface UserType {
   "id": number,
   "name": string,
   "avatar"?: string,
-  "money": number,
+  "money"?: number,
   "login"?: string,
   "password"?: string,
   "roles"?: string[],
