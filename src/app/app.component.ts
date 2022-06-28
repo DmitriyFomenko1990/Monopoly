@@ -14,11 +14,7 @@ export class AppComponent {
   isAuth = false;
 
   ngOnInit(): void {
-   // autorization.setCookie('monopolyToken', '123');
     const token = autorization.getCookie('monopolyToken');
-    if (token) {
-      this.router.navigate(['/game-page']);
-    }
     if (!token) this.router.navigate(['/login']);
   }
 }
