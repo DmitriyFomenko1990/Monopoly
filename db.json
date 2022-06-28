@@ -62,5 +62,33 @@
     "avatar": "",
     "money": 10000000000,
     "transactions": []
-  }
+  },
+  "games": [
+    {
+      "id": 1,
+      "name": "new game",
+      "icon": "",
+      "createdAt": "28.06.2022",
+      "players": [],
+      "status": ""
+    },
+    {
+      "id": 1656442531521,
+      "name": "Дмитрий",
+      "players": [
+        2
+      ],
+      "createdAt": "2.5.2022"
+    },
+    {
+      "id": 1656442735965,
+      "name": "awd",
+      "players": [
+        2,
+        1,
+        10
+      ],
+      "createdAt": "2.5.2022"
+    }
+  ]
 }

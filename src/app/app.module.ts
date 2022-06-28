@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {EventEmitter, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
@@ -12,6 +12,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { GamesComponent } from './components/games/games.component';
+import { CreateNewGameComponent } from './components/create-new-game/create-new-game.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     UserComponent,
     MoneyTransferringComponent,
     LoginPageComponent,
+    GamesComponent,
+    CreateNewGameComponent,
   ],
   imports: [
     BrowserModule,

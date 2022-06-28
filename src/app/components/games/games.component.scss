@@ -1,0 +1,30 @@
+.game {
+  &__wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+    box-shadow: 1px 1px 2px 2px rgb(0 0 0 / 10%);
+    transition: all 0.3s;
+  }
+  &__wrapper:hover {
+    transform: scale(1.05);
+  }
+  &__icon {
+    width: 70px;
+    height: 70px;
+  }
+  &__created-text {
+    font-size: 14px;
+  }
+}
+
+.create-game__popup {
+  position: absolute;
+  width: 100%;
+  min-height: 300px ;
+  top: 0;
+  box-shadow: 1px 1px 2px 2px rgb(0 0 0 / 10%);
+}
