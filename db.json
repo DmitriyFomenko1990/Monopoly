@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "dima",
+      "sex": "male",
       "avatar": "",
-      "money": 15000000,
       "login": "dima",
       "password": "123",
       "roles": [
@@ -14,9 +14,8 @@
     },
     {
       "id": 2,
-      "name": "json-server",
+      "name": "Kate",
       "avatar": "",
-      "money": 15000000,
       "login": "dima2",
       "password": "123",
       "roles": [
@@ -26,9 +25,9 @@
     },
     {
       "id": 3,
-      "name": "json-server",
+      "name": "Igor",
+      "sex": "male",
       "avatar": "",
-      "money": 15000000,
       "login": "dima3",
       "password": "123",
       "roles": [
@@ -38,9 +37,8 @@
     },
     {
       "id": 4,
-      "name": "json-server",
+      "name": "Alya",
       "avatar": "",
-      "money": 15000000,
       "login": "dima4",
       "password": "123",
       "roles": [
@@ -50,6 +48,7 @@
     },
     {
       "sex": "male",
+      "avatar": "",
       "password": "123",
       "login": "fomenkodmitriy1990@mail.ru",
       "name": "Дмитрий",
@@ -69,7 +68,27 @@
       "name": "new game",
       "icon": "",
       "createdAt": "28.06.2022",
-      "players": [],
+      "players": [
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "balance": 99485
+        },
+        {
+          "id": 3,
+          "name": "Igor",
+          "sex": "male",
+          "avatar": "assets/img/ava-male.jpg",
+          "login": "dima3",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 165515
+        }
+      ],
       "status": ""
     },
     {
@@ -89,6 +108,230 @@
         10
       ],
       "createdAt": "2.5.2022"
+    },
+    {
+      "id": 1656517274690,
+      "name": "test",
+      "players": [
+        {
+          "id": 1,
+          "name": "dima",
+          "avatar": "",
+          "login": "dima",
+          "password": "123",
+          "roles": [
+            "admin"
+          ],
+          "transactions": [],
+          "balance": 15000
+        },
+        {
+          "id": 3,
+          "name": "Igor",
+          "avatar": "",
+          "login": "dima3",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 15000
+        },
+        {
+          "id": 4,
+          "name": "Alya",
+          "avatar": "",
+          "login": "dima4",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 15000
+        },
+        {
+          "id": 2,
+          "name": "Kate",
+          "avatar": "",
+          "login": "dima2",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 15000
+        }
+      ],
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656518033176,
+      "name": "adwdawd",
+      "players": [
+        {
+          "id": 2,
+          "name": "Kate",
+          "avatar": "assets/img/ava-female.png",
+          "login": "dima2",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 0
+        },
+        {
+          "id": 4,
+          "name": "Alya",
+          "avatar": "assets/img/ava-female.png",
+          "login": "dima4",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 0
+        },
+        {
+          "id": 1,
+          "name": "dima",
+          "avatar": "assets/img/ava-female.png",
+          "login": "dima",
+          "password": "123",
+          "roles": [
+            "admin"
+          ],
+          "transactions": [],
+          "balance": 0
+        }
+      ],
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656519790442,
+      "name": "awdawdawd",
+      "players": 3,
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656520117539,
+      "name": "awdawd",
+      "players": 2,
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656520173286,
+      "name": "adwddaw",
+      "players": [
+        {
+          "id": 3,
+          "name": "Igor",
+          "avatar": "assets/img/ava-female.png",
+          "login": "dima3",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 15000
+        },
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "balance": 250000
+        }
+      ],
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656520383745,
+      "name": "awdawdawdaw",
+      "players": [
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "balance": 264435
+        },
+        {
+          "id": 3,
+          "name": "Igor",
+          "sex": "male",
+          "avatar": "assets/img/ava-male.jpg",
+          "login": "dima3",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 565
+        }
+      ],
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656524589147,
+      "name": "awdadw",
+      "players": [
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "balance": 250000
+        },
+        {
+          "id": 1,
+          "name": "dima",
+          "sex": "male",
+          "avatar": "assets/img/ava-male.jpg",
+          "login": "dima",
+          "password": "123",
+          "roles": [
+            "admin"
+          ],
+          "transactions": [],
+          "balance": 15000
+        },
+        {
+          "id": 2,
+          "name": "Kate",
+          "avatar": "assets/img/ava-female.png",
+          "login": "dima2",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 15000
+        }
+      ],
+      "createdAt": "3.5.2022"
+    },
+    {
+      "id": 1656527620826,
+      "name": "asdasdadas",
+      "players": [
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "balance": 250000
+        },
+        {
+          "id": 2,
+          "name": "Kate",
+          "avatar": "assets/img/ava-female.png",
+          "login": "dima2",
+          "password": "123",
+          "roles": [
+            "player"
+          ],
+          "transactions": [],
+          "balance": 15000
+        }
+      ],
+      "createdAt": "3.5.2022"
     }
   ]
 }

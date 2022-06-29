@@ -1,23 +1,31 @@
-<div class="container position-relative h-100" >
-  <h2 class="mb-3">Games: </h2>
-  <div class="row m-0">
-    <div
-      class="game__wrapper col-3 border border-2 border-secondary rounded-2 justify-content-center"
-      (click)="onOpenModal()"
-    >
-      <h3>Create new game</h3>
-    </div>
-    <div
-      class="game__wrapper col-3 border border-2 border-secondary rounded-2"
-      *ngFor="let game of games"
-    >
-      <img class="game__icon rounded-2 mb-2" src="assets/img/game-ico.jpg">
-      <h3>{{game.name}}</h3>
-      <h4  class="game__created-text mb-0">Created at: {{game.createdAt}}</h4>
+<div class="container pb-5 mb-5" >
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h2 class="title mb-0">Games: </h2>
+    <button class="btn btn-success" (click)="onOpenModal()">
+      Create new game
+    </button>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-3 mb-3" *ngFor="let game of games">
+      <a  [routerLink]="['/game-page']" [queryParams]="{ id: game.id }"
+         class="card game__wrapper border border-2 border-secondary rounded-2"
+      >
+        <img class="card-img-top" src="assets/img/game-ico.jpg">
+        <div class="card-body">
+          <h3 class="card-title">{{game.name}}</h3>
+          <h4  class="game__created-text card-text">Created at: {{game.createdAt}}</h4>
+        </div>
+
+      </a>
     </div>
   </div>
 
-  <div *ngIf="showModal" class="create-game__popup bg-warning border border-2 border-secondary rounded-2">
-    <app-create-new-game [showModal]="showModal" (closeModal)="onCloseModal($event)"></app-create-new-game>
+  <div *ngIf="showModal" class="create-game__popup-wrapper">
+    <div  class="create-game__popup container mt-5 bg-warning border border-2 border-secondary rounded-2">
+      <app-create-new-game [showModal]="showModal" (closeModal)="onCloseModal($event)"></app-create-new-game>
+    </div>
   </div>
+
+
 </div>

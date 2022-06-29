@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {filter, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {UserType, GameType} from "../types";
 import {map} from "rxjs/operators";
 
@@ -24,8 +24,19 @@ export class HttpService{
     return this.http.get<GameType[]>(`${this.url}/games`);
   }
 
+   getGameById(id: number): Observable<GameType[]>{
+    return this.http.get<GameType[]>(`${this.url}/games?id=${id}`)
+  }
+
   createNewGame(game: GameType){
     return this.http.post<any>(`${this.url}/games`,  game)
+      .pipe(map((res:any) => {
+        return res
+      }))
+  }
+
+  updateGame(game:{id: number, players: UserType[] }) {
+    return this.http.patch<any>(`${this.url}/games/${game.id}`,  game)
       .pipe(map((res:any) => {
         return res
       }))

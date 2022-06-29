@@ -25,12 +25,11 @@ export class GamesComponent implements OnInit {
 
   onOpenModal() {
     this.showModal = true;
+    let body = document.getElementById('body');
+    if (body) body.style.overflow = "hidden"
   }
 
   onCloseModal(res: boolean) {
     this.showModal = res
   }
-
-
-
 }

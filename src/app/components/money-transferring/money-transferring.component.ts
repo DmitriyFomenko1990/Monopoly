@@ -1,25 +1,27 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { UserType} from "../../types";
-import { Bank } from "../dev-helpers/users";
+import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-money-transferring',
   templateUrl: './money-transferring.component.html',
-  styleUrls: ['./money-transferring.component.scss']
+  styleUrls: ['./money-transferring.component.scss'],
+  providers: [HttpService]
 })
 export class MoneyTransferringComponent implements OnInit {
-  @Input() users: UserType[]  = [];
+  @Input() players: UserType[]  = [];
+  @Input() id: number  = 0;
   payer: UserType | null = null;
   recipient: UserType | null = null;
-  money: number | null = null
+  balance: number | null = null;
+  constructor(private httpService: HttpService,) {}
 
-
-  choosePayer(chosenUser:UserType) {
-    this.payer = chosenUser;
+  choosePayer(chosenPayer:UserType) {
+    this.payer = chosenPayer;
   }
 
-  chooseRecipient(chosenUser:UserType) {
-    this.recipient = chosenUser;
+  chooseRecipient(chosenPayer:UserType) {
+    this.recipient = chosenPayer;
   }
 
   clearChosen() {
@@ -28,16 +30,20 @@ export class MoneyTransferringComponent implements OnInit {
   }
 
   transferMoney() {
-    if (this.payer?.money && this.money) this.payer.money = this.payer.money - this.money;
-    if (this.recipient?.money && this.money) this.recipient.money = this.recipient.money + this.money;
+    if (this.payer?.balance && this.balance) this.payer.balance = this.payer.balance - this.balance;
+    if (this.recipient?.balance && this.balance) this.recipient.balance = this.recipient.balance + this.balance;
+    debugger
+    this.httpService.updateGame({id: +this.id, players: this.players })
+      .subscribe(res => {
+        let x = res
+
+      })
+    debugger
     this.clearChosen();
-    this.money = null;
+    this.balance = null;
   }
 
-  constructor() {}
-
   ngOnInit(): void {
-    this.users.push(Bank)
   }
 
 }

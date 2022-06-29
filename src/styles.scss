@@ -15,8 +15,8 @@ input,button,textarea{font-family:inherit;background-color: unset}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner{padding:0;border:0;}
-a,a:visited{text-decoration: none;}
-a:hover{text-decoration: none;}
+a,a:visited{text-decoration: none; color: inherit}
+a:hover{text-decoration: none; color: inherit}
 ul li{list-style: none; padding-left: 0; margin: 0;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
@@ -41,4 +41,10 @@ code {
 }
 div#root{
   height: 100%;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ad1627;
 }

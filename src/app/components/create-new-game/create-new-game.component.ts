@@ -1,7 +1,8 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {HttpService} from "../../services/http.service";
 import {NgForm} from '@angular/forms';
-
+import {UserType} from "../../types";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-new-game',
@@ -26,6 +27,8 @@ export class CreateNewGameComponent implements OnInit {
   }
 
   onCloseModal() {
+    let body = document.getElementById('body');
+    if (body) body.style.overflow = "inherit"
     this.closeModal.emit(false)
   }
 
@@ -44,19 +47,34 @@ export class CreateNewGameComponent implements OnInit {
   }
 
   onCreateGame(f: NgForm) {
-    let date = new Date();
+    const date = new Date();
+    let players = this.selectedUsers.map(user => ({
+      ...user,
+      balance: 15000,
+      avatar: user.sex === "male"
+        ? "assets/img/ava-male.jpg"
+        : "assets/img/ava-female.png"
+    }))
+
+    players.unshift({
+      id: 1,
+      name: "Bank",
+      avatar: "assets/img/bank.png",
+      balance: 250000,
+    })
+
     const game = {
       id: date.getTime(),
       name: f.value.name,
-      players: this.selectedUsers.map(user => user.id),
+      players: players,
       createdAt: `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
     }
+    let body = document.getElementById('body');
+    if (body) body.style.overflow = "inherit"
+
     this.httpService.createNewGame(game)
       .subscribe(data => {
-      this.router.navigate(['/games'])
+      this.router.navigate([`/game-page`])
       })
   }
 }
-
-import {UserType} from "../../types";
-import {Router} from "@angular/router";
