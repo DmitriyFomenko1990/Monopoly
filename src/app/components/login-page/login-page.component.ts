@@ -54,7 +54,7 @@ export class LoginPageComponent implements OnInit {
         }
         const {password, ...userWithoutPass} = user
         autorization.setCookie('monopolyToken', JSON.stringify(userWithoutPass));
-        this.router.navigate(['/game-page']);
+        this.router.navigate(['/games']);
       } );
   }
 
