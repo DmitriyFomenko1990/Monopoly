@@ -10,8 +10,6 @@ import {Router} from "@angular/router";
 export class AppComponent {
   constructor(private router: Router) {
   }
-  title = 'monopoly';
-  isAuth = false;
 
   ngOnInit(): void {
     const token = autorization.getCookie('monopolyToken');
