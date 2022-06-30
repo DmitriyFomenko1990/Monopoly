@@ -2,7 +2,7 @@ export interface UserType {
   "id": number,
   "name": string,
   "avatar"?: string,
-  "balance"?: number,
+  "amount"?: number,
   "login"?: string,
   "password"?: string,
   "roles"?: string[],
@@ -13,14 +13,14 @@ export interface PayerType {
   "id": number,
   "name": string,
   "avatar"?: string,
-  "balance": number,
+  "amount": number,
 }
 
 export interface BankType {
   "id": number,
   "name": string,
   "avatar"?: string,
-  "balance": number,
+  "amount": number,
 }
 
 export interface GameType {
@@ -30,4 +30,5 @@ export interface GameType {
   "players": UserType[],
   "status"?: string,
   "icon"?: string,
+  transactions: any[],
 }
