@@ -1,3 +1,15 @@
-<nav class="header navbar navbar-dark p-3">
-  <h3 class="fs-3 fw-bold text-white">MONOPOLY</h3>
+<nav class="header py-3" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <h3 class="fs-3 fw-bold text-white mb-0">MONOPOLY</h3>
+      <ul class="d-flex mb-0">
+        <a  [routerLink]="['/games']">
+          <li class="py-2 text-white">Games</li>
+        </a>
+        <a  [routerLink]="['/users']">
+          <li class="py-2 text-white">Users</li>
+        </a>
+      </ul>
+    </div>
+  </div>
 </nav>
