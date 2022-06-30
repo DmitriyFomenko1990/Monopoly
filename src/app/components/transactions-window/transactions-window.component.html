@@ -1,0 +1,16 @@
+<div class="border border-2 border-secondary rounded-2 px-3" >
+  <div *ngIf="transactions" class="p-0 m-0">
+    <div class="transactions__item my-3 position-relative" *ngFor="let transaction of transactions">
+      <p>
+        from <b>{{transaction.payer}}</b> to  <b>{{transaction.recipient}}</b> :  <b>{{transaction.amount| currency}}k</b>
+      </p>
+      <button (click)="onDeleteTransaction(transaction.id)" class="del-btn"></button>
+    </div>
+  </div>
+
+  <div *ngIf="!transactions || !transactions.length">
+    <p class="transactions__text my-3" >
+      Nothing
+    </p>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h2 class="title mb-0">Users: </h2>
+    <button class="btn btn-success" (click)="onOpenModal()">
+      Create new user
+    </button>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let user of users" class="col-6 col-lg-3 mb-3">
+      <div class="user__wrapper border border-2 border-secondary rounded-2 position-relative">
+        <button (click)="onDeleteUser(user.id); false" class="del-btn"></button>
+        <app-user [user]="user" ></app-user>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showModal" class="create-user__popup-wrapper">
+    <div  class="create-user__popup container mt-5 bg-warning border border-2 border-secondary rounded-2 position-relative">
+      <app-create-new-user [showModal]="showModal" (closeModal)="onCloseModal($event)" (createUser)="addUser($event)"></app-create-new-user>
+    </div>
+  </div>
+
+</div>

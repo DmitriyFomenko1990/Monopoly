@@ -1,21 +1,13 @@
 <div  class="create-game__wrapper ">
   <button class="create-game__close-btn m-l-auto" (click)="onCloseModal()">
-
   </button>
   <form #f="ngForm" (submit)="onCreateGame(f)">
     <div class="form-group">
       <label class="mb-3" for="game-name">Game name</label>
       <input required ngModel name="name"  type="email" class="form-control" id="game-name" placeholder="Name">
     </div>
-    <div>
-      <label class="mb-3">Selected players:</label>
-      <div class="d-flex flex-wrap">
-        <div class="create-game__selected-user d-flex mr-3 mb-3" *ngFor="let user of selectedUsers">
-          <span class="mr-3">{{user.name}}</span><button (click)="onDeleteSelected(user)" class="create-game__del-btn position-relative"></button>
-        </div>
-      </div>
-    </div>
 
+    <label class="mb-3">Selected players:</label>
     <div class="dropdown show mb-3">
       <a
         class="btn btn-secondary dropdown-toggle"
@@ -35,6 +27,12 @@
           {{user.name}}
         </li>
       </ul>
+    </div>
+
+    <div class="d-flex flex-wrap">
+      <div class="create-game__selected-user d-flex mr-3 mb-3" *ngFor="let user of selectedUsers">
+        <span class="mr-3">{{user.name}}</span><button (click)="onDeleteSelected(user)" class="create-game__del-btn position-relative"></button>
+      </div>
     </div>
 
     <input class="btn btn-success" type="submit"  value="Create game">

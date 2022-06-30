@@ -1,0 +1,22 @@
+<div  class="create-user__wrapper ">
+  <button class="create-user__close-btn m-l-auto" (click)="onCloseModal()">
+  </button>
+  <form [formGroup]="userForm" (submit)="onCreateUser()" novalidate>
+    <div class="form-group">
+      <label class="mb-3" for="userName">User name</label>
+      <input formControlName="userName"
+             type="text" class="form-control" id="userName" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <label class="mb-0">Sex:</label>
+      <input id="male" class="mx-2 my-0" type="radio"  name="userSex" value="male" formControlName="userSex" >
+      <label for="male" class="auth-form__radio-btn mb-0">Male</label>
+      <input id="female" class="mx-2 my-0" type="radio"  name="userSex" value="female" formControlName="userSex" >
+      <label for="female" class="auth-form__radio-btn mb-0">Female</label>
+    </div>
+
+    <button class="btn btn-success" [disabled]="!userForm.valid" type="submit">Create user</button>
+  </form>
+
+</div>

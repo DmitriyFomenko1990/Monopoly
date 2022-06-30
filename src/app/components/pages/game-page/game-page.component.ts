@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {GameType, UserType} from "../../types";
+import {GameType, UserType} from "../../../types";
 import { ActivatedRoute } from '@angular/router';
-import {HttpService} from "../../services/http.service";
+import {HttpService} from "../../../services/http.service";
 
 @Component({
   selector: 'app-game-page',
@@ -10,9 +10,9 @@ import {HttpService} from "../../services/http.service";
   providers: [HttpService]
 })
 export class GamePageComponent implements OnInit {
-  players: UserType[] = []
-  orderObj:any = null
-  gameObj: GameType | {} = {}
+  players: UserType[] = [];
+  orderObj:any = null;
+  gameObj: GameType | undefined;
   constructor(private route: ActivatedRoute,
               private httpService: HttpService) { }
 

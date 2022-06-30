@@ -1,0 +1,32 @@
+.user {
+  &__wrapper {
+    margin-bottom: 16px;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px 2px rgb(0 0 0 / 10%);
+    transition: all 0.3s;
+    padding: 8px;
+  }
+  &__wrapper:hover {
+    transform: scale(1.05);
+    &  > .del-btn {
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+  }
+}
+
+.create-user {
+  &__popup-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgb(105, 105, 105, 0.7);
+  }
+  &__popup {
+    width: 100%;
+    min-height: 300px;
+    box-shadow: 1px 1px 2px 2px rgb(0 0 0 / 10%);
+  }
+}

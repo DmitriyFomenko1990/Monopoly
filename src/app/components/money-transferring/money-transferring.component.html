@@ -1,57 +1,67 @@
 <div class="transaction_wrapper" class="py-3 mt-3 border-top">
-  <h3 class="transaction_title">Money transaction</h3>
-  <div class="d-flex justify-content-around align-items-center pt-3">
-    <div class="transaction_payer transaction_box d-flex justify-content-around align-items-center">
-      <div *ngIf="!payer" class="transaction_dropdown">
-        <span class="text-center">Select player</span>
-        <div class="transaction_popup-menu">
-          <ul>
-          <li class="" (click)="choosePayer(player)"  *ngFor="let player of players"  >
-            <p class="transaction_popup-item" *ngIf="player != recipient">{{ player.name  | uppercase }}</p>
-          </li>
-          </ul>
+  <div class="d-flex flex-wrap">
+    <div class="col-12 col-lg-8">
+      <h3 class="title mb-3">Money transaction</h3>
+      <div class="d-flex justify-content-around align-items-center">
+        <div class="transaction_payer transaction_box d-flex justify-content-around align-items-center">
+          <div *ngIf="!payer" class="transaction_dropdown">
+            <span class="text-center">Select player</span>
+            <div class="transaction_popup-menu">
+              <ul>
+                <li class="" (click)="choosePayer(player)"  *ngFor="let player of players"  >
+                  <p class="transaction_popup-item" *ngIf="player != recipient">{{ player.name  | uppercase }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <app-user *ngIf="payer" [user]="payer"></app-user>
+        </div>
+
+        <div class="transaction_recipient transaction_box d-flex justify-content-around align-items-center">
+          <div *ngIf="!recipient" class="transaction_dropdown"><span class="text-center">Select player</span>
+            <div class="transaction_popup-menu">
+              <ul>
+                <li class="" (click)="chooseRecipient(player)"  *ngFor="let player of players"  >
+                  <p class="transaction_popup-item" *ngIf="player != payer">{{ player.name  | uppercase }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <app-user *ngIf="recipient" [user]="recipient"></app-user>
         </div>
       </div>
-      <app-user *ngIf="payer" [user]="payer"></app-user>
+
+      <form class="w-100 d-flex align-items-center flex-column my-4" >
+        <div class="position-relative transaction_input-wrapper">
+          <input type="number"
+                 class="transaction_input"
+                 [(ngModel)]="amount"
+                 name="money"  >
+        </div>
+        <div class="h-100 d-flex justify-content-center mt-3">
+
+          <button
+            class="btn btn-success px-4 mx-2"
+            [disabled]="!payer || !recipient || !amount || payer.amount && (payer.amount < amount)"
+            (click)="transferMoney()"
+          >
+            <span>Pay</span>
+          </button>
+          <button
+            class="btn btn-danger px-4 mx-2"
+            [disabled]="!payer && !recipient"
+            (click)="clearChosen()"
+          >
+            <span>Clear</span>
+          </button>
+        </div>
+      </form>
     </div>
 
-    <div class="transaction_recipient transaction_box d-flex justify-content-around align-items-center">
-      <div *ngIf="!recipient" class="transaction_dropdown"><span class="text-center">Select player</span>
-        <div class="transaction_popup-menu">
-          <ul>
-              <li class="" (click)="chooseRecipient(player)"  *ngFor="let player of players"  >
-                <p class="transaction_popup-item" *ngIf="player != payer">{{ player.name  | uppercase }}</p>
-              </li>
-          </ul>
-        </div>
-      </div>
-      <app-user *ngIf="recipient" [user]="recipient"></app-user>
+    <div class="col-12 col-lg-4">
+      <h3 class="title mb-3 ">Transactions history:</h3>
+      <app-transactions-window [transactions]="transactions" (delTransactions)="delTransactions($event)" ></app-transactions-window>
     </div>
   </div>
 
-  <form class="w-100 d-flex align-items-center flex-column my-4" >
-    <div class="position-relative transaction_input-wrapper">
-      <input type="number"
-             class="transaction_input"
-             [(ngModel)]="balance"
-             name="money"  >
-    </div>
-  <div class="h-100 d-flex justify-content-center mt-3">
-
-    <button
-      class="btn btn-success px-4 mx-2"
-      [disabled]="!payer || !recipient || !balance || payer.balance && (payer.balance < balance)"
-      (click)="transferMoney()"
-    >
-      <span>Pay</span>
-    </button>
-    <button
-      class="btn btn-danger px-4 mx-2"
-      [disabled]="!payer && !recipient"
-      (click)="clearChosen()"
-    >
-      <span>Clear</span>
-    </button>
-  </div>
-  </form>
 </div>

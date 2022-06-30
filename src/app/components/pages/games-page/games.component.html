@@ -1,4 +1,4 @@
-<div class="container pb-5 mb-5" >
+<div class="container" >
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h2 class="title mb-0">Games: </h2>
     <button class="btn btn-success" (click)="onOpenModal()">
@@ -6,26 +6,25 @@
     </button>
   </div>
 
-  <div class="row justify-content-between">
-    <div class="col-3 mb-3" *ngFor="let game of games">
+  <div class="row">
+    <div class="col-6 col-lg-3 mb-3" *ngFor="let game of games">
+
       <a  [routerLink]="['/game-page']" [queryParams]="{ id: game.id }"
-         class="card game__wrapper border border-2 border-secondary rounded-2"
+         class="card game__wrapper border border-2 border-secondary rounded-2 position-relative"
       >
-        <img class="card-img-top" src="assets/img/game-ico.jpg">
+        <button (click)="onDeleteGame($event, game.id); false" class="del-btn"></button>
+        <img class="card-img-top" src="../../../../assets/img/game-ico.jpg">
         <div class="card-body">
           <h3 class="card-title">{{game.name}}</h3>
           <h4  class="game__created-text card-text">Created at: {{game.createdAt}}</h4>
         </div>
-
       </a>
     </div>
   </div>
 
   <div *ngIf="showModal" class="create-game__popup-wrapper">
-    <div  class="create-game__popup container mt-5 bg-warning border border-2 border-secondary rounded-2">
+    <div  class="create-game__popup container mt-5 bg-warning border border-2 border-secondary rounded-2 position-relative">
       <app-create-new-game [showModal]="showModal" (closeModal)="onCloseModal($event)"></app-create-new-game>
     </div>
   </div>
-
-
 </div>

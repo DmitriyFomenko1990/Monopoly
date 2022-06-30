@@ -1,0 +1,21 @@
+.transactions {
+  &__item .del-btn {
+    width: 18px;
+    height: 18px;
+    top: -1px;
+    right: -14px;
+    &:after {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  &__item {
+    cursor: pointer;
+    &:hover .del-btn {
+      opacity: 1;
+    }
+  }
+  &__item b {
+    color: #198754;
+  }
+}

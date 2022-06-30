@@ -1,16 +1,15 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {HttpService} from "../../services/http.service";
-import {UserType} from "../../types";
+import {HttpService} from "../../../services/http.service";
+import {UserType} from "../../../types";
 import { ToastrService } from 'ngx-toastr'
-import autorization from "../../services/autorization.service";
+import autorization from "../../../services/autorization.service";
 import {Router} from "@angular/router";
-//import TokenService from '../../services/token.service';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
-  providers: [HttpService]
+  providers: [HttpService],
 })
 export class LoginPageComponent implements OnInit {
   loginModel;

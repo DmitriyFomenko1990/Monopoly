@@ -10,11 +10,14 @@ import {HttpService} from "../../services/http.service";
 })
 export class MoneyTransferringComponent implements OnInit {
   @Input() players: UserType[]  = [];
+  @Input() transactions: any[] = [];
   @Input() id: number  = 0;
   payer: UserType | null = null;
   recipient: UserType | null = null;
-  balance: number | null = null;
-  constructor(private httpService: HttpService,) {}
+  amount: number | null = null;
+  constructor(private httpService: HttpService,) {
+
+  }
 
   choosePayer(chosenPayer:UserType) {
     this.payer = chosenPayer;
@@ -30,17 +33,28 @@ export class MoneyTransferringComponent implements OnInit {
   }
 
   transferMoney() {
-    if (this.payer?.balance && this.balance) this.payer.balance = this.payer.balance - this.balance;
-    if (this.recipient?.balance && this.balance) this.recipient.balance = this.recipient.balance + this.balance;
-    debugger
-    this.httpService.updateGame({id: +this.id, players: this.players })
-      .subscribe(res => {
-        let x = res
+    if (this.payer?.amount && this.amount) this.payer.amount = this.payer.amount - this.amount;
+    if (this.recipient?.amount && this.amount) this.recipient.amount = this.recipient.amount + this.amount;
 
+    this.transactions = [
+      {
+        id: new Date().getTime(),
+        payer: this.payer?.name,
+        recipient: this.recipient?.name,
+        amount: this.amount
+      },
+      ...this.transactions
+    ]
+
+    this.httpService.updateGame({id: +this.id, players: this.players, transactions: this.transactions })
+      .subscribe(res => {
       })
-    debugger
     this.clearChosen();
-    this.balance = null;
+    this.amount = null;
+  }
+
+  delTransactions(id: number) {
+    this.transactions = this.transactions.filter(transaction => transaction.id !== id);
   }
 
   ngOnInit(): void {

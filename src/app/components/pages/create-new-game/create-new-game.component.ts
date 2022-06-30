@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {HttpService} from "../../services/http.service";
+import {HttpService} from "../../../services/http.service";
 import {NgForm} from '@angular/forms';
-import {UserType} from "../../types";
+import {UserType} from "../../../types";
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,15 +11,14 @@ import {Router} from "@angular/router";
   providers: [HttpService]
 })
 export class CreateNewGameComponent implements OnInit {
-
-  constructor( private httpService: HttpService,
-               private router: Router) { }
-
   @Input() showModal: boolean | undefined;
   @Output() closeModal = new EventEmitter<boolean>();
   users: UserType[] = [];
   selectedUsers: UserType[] = [];
   name: string =''
+
+  constructor( private httpService: HttpService,
+               private router: Router) { }
 
   ngOnInit(): void {
     this.httpService.getUsers()
@@ -50,31 +49,29 @@ export class CreateNewGameComponent implements OnInit {
     const date = new Date();
     let players = this.selectedUsers.map(user => ({
       ...user,
-      balance: 15000,
-      avatar: user.sex === "male"
-        ? "assets/img/ava-male.jpg"
-        : "assets/img/ava-female.png"
+      amount: 15000,
     }))
 
     players.unshift({
       id: 1,
       name: "Bank",
       avatar: "assets/img/bank.png",
-      balance: 250000,
+      amount: 250000,
     })
 
     const game = {
       id: date.getTime(),
       name: f.value.name,
       players: players,
-      createdAt: `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`
+      createdAt: date.toLocaleDateString(),
+      transactions: []
     }
     let body = document.getElementById('body');
     if (body) body.style.overflow = "inherit"
 
     this.httpService.createNewGame(game)
       .subscribe(data => {
-      this.router.navigate([`/game-page`])
+      this.router.navigate([`/game-page`], { queryParams: { id: game.id } } )
       })
   }
 }
