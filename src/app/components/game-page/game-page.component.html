@@ -1,9 +1,0 @@
-<div class="container py-3">
-  <div class="d-flex flex-wrap justify-content-around">
-    <div *ngFor="let player of players" class="p-2">
-      <app-user [user]="player"></app-user>
-    </div>
-
-  </div>
-  <app-money-transferring [players]="players" [id]="orderObj.params.id" ></app-money-transferring>
-</div>

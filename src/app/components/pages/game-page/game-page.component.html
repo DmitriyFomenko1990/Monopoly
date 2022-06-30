@@ -1,0 +1,14 @@
+<div class="container py-3">
+  <div class="row">
+    <div *ngFor="let player of players" class="col-6 col-lg-2 col-md-4 mb-3">
+      <app-user [user]="player"></app-user>
+    </div>
+
+  </div>
+  <app-money-transferring [players]="players"
+                          [transactions]="gameObj && gameObj.transactions || []" [id]="orderObj.params.id"
+
+  >
+
+  </app-money-transferring>
+</div>
