@@ -1,4 +1,4 @@
-class Autorisation {
+class Authorization {
   constructor() {
   }
 
@@ -24,4 +24,4 @@ class Autorisation {
     return '';
   };
 }
-export default new Autorisation()
+export default new Authorization()
