@@ -16,7 +16,7 @@
   </div>
 
   <div *ngIf="showModal" class="create-user__popup-wrapper">
-    <div  class="create-user__popup container mt-5 bg-warning border border-2 border-secondary rounded-2 position-relative">
+    <div  class="create-user__popup container mt-5 bg-light border border-2 border-secondary rounded-2 position-relative">
       <app-create-new-user [showModal]="showModal" (closeModal)="onCloseModal($event)" (createUser)="addUser($event)"></app-create-new-user>
     </div>
   </div>

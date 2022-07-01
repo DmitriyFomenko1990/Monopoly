@@ -18,7 +18,8 @@
         </div>
 
         <div class="transaction_recipient transaction_box d-flex justify-content-around align-items-center">
-          <div *ngIf="!recipient" class="transaction_dropdown"><span class="text-center">Select player</span>
+          <div *ngIf="!recipient" class="transaction_dropdown">
+            <span class="text-center">Select player</span>
             <div class="transaction_popup-menu">
               <ul>
                 <li class="" (click)="chooseRecipient(player)"  *ngFor="let player of players"  >

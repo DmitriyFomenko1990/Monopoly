@@ -23,7 +23,7 @@
   </div>
 
   <div *ngIf="showModal" class="create-game__popup-wrapper">
-    <div  class="create-game__popup container mt-5 bg-warning border border-2 border-secondary rounded-2 position-relative">
+    <div  class="create-game__popup container mt-5 bg-light border border-2 border-secondary rounded-2 position-relative">
       <app-create-new-game [showModal]="showModal" (closeModal)="onCloseModal($event)"></app-create-new-game>
     </div>
   </div>

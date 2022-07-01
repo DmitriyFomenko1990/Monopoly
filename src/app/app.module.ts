@@ -13,9 +13,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { GamesComponent } from './components/pages/games-page/games.component';
-import { CreateNewGameComponent } from './components/pages/create-new-game/create-new-game.component';
+import { CreateNewGameComponent } from './components/create-new-game/create-new-game.component';
 import { UsersPageComponent } from './components/pages/users-page/users-page.component';
-import { CreateNewUserComponent } from './components/pages/create-new-user/create-new-user.component';
+import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
 import { TransactionsWindowComponent } from './components/transactions-window/transactions-window.component';
 
 

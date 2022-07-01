@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {HttpService} from "../../../services/http.service";
+import {HttpService} from "../../services/http.service";
 import {NgForm} from '@angular/forms';
-import {UserType} from "../../../types";
+import {UserType} from "../../types";
 import {Router} from "@angular/router";
 
 @Component({

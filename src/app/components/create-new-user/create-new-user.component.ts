@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from "@angular/forms";
-import {HttpService} from "../../../services/http.service";
-import {UserType} from "../../../types";
+import {HttpService} from "../../services/http.service";
+import {UserType} from "../../types";
 
 @Component({
   selector: 'app-create-new-user',
