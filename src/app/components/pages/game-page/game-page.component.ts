@@ -13,6 +13,7 @@ export class GamePageComponent implements OnInit {
   players: UserType[] = [];
   orderObj:any = null;
   gameObj: GameType | undefined;
+
   constructor(private route: ActivatedRoute,
               private httpService: HttpService) { }
 

@@ -56,11 +56,4 @@ export class HttpService{
         return res
       }))
   }
-
-  updateTransactions(game:{id: number, transactions: any[] | undefined }) {
-    return this.http.patch<any>(`${this.url}/games/${game.id}`,  game)
-      .pipe(map((res:any) => {
-        return res
-      }))
-  }
 }

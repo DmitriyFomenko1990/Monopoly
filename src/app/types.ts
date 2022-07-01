@@ -23,6 +23,15 @@ export interface BankType {
   "amount": number,
 }
 
+export interface Transaction {
+  id: number,
+  payer?: string,
+  payerId?: number,
+  recipient?: string,
+  recipientId?: number,
+  amount?: number | null,
+}
+
 export interface GameType {
   "id": number,
   "name": string,
@@ -30,5 +39,6 @@ export interface GameType {
   "players": UserType[],
   "status"?: string,
   "icon"?: string,
-  transactions: any[],
+  transactions: Transaction[],
 }
+

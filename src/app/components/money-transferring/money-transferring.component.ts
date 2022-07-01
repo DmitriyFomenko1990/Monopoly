@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { UserType} from "../../types";
+import {Transaction, UserType} from "../../types";
 import {HttpService} from "../../services/http.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {HttpService} from "../../services/http.service";
 })
 export class MoneyTransferringComponent implements OnInit {
   @Input() players: UserType[]  = [];
-  @Input() transactions: any[] = [];
+  @Input() transactions: Transaction[] = [];
   @Input() id: number  = 0;
   payer: UserType | null = null;
   recipient: UserType | null = null;
@@ -40,7 +40,9 @@ export class MoneyTransferringComponent implements OnInit {
       {
         id: new Date().getTime(),
         payer: this.payer?.name,
+        payerId: this.payer?.id,
         recipient: this.recipient?.name,
+        recipientId: this.recipient?.id,
         amount: this.amount
       },
       ...this.transactions
@@ -54,7 +56,21 @@ export class MoneyTransferringComponent implements OnInit {
   }
 
   delTransactions(id: number) {
-    this.transactions = this.transactions.filter(transaction => transaction.id !== id);
+    const transaction = this.transactions.find(transaction => transaction.id === id);
+      this.players.forEach(player => {
+        if (player.id === transaction?.payerId) {
+          // @ts-ignore
+          player.amount = player.amount + transaction.amount
+        }
+        if (player.id === transaction?.recipientId) {
+          // @ts-ignore
+          player.amount = player.amount - transaction.amount
+        }
+      })
+      this.transactions = this.transactions.filter(transaction => transaction.id !== id);
+      this.httpService.updateGame({id: +this.id, players: this.players, transactions: this.transactions})
+        .subscribe(res => {
+        })
   }
 
   ngOnInit(): void {
