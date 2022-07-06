@@ -1,13 +1,56 @@
 .auth-form {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 24px auto;
+  padding: 16px;
+  &__input-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  &__checkbox-wrap{
+    display: flex;
+    margin-bottom: 16px;
+    align-items: flex-end;
+  }
+  &__input {
+    background-color: #ffffff;
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 5px;
+    padding: 8px;
+  }
+  &__form-error{
+    border: 1px solid #a61313;
+    color: #a61313;
+  }
+  &__err-message {
+    margin-top: 6px;
+  }
   &__radio-btn {
     cursor: pointer;
   }
-}
-
-.auth-form input {
-  background-color: #ffffff;
-  border: 1px solid;
+  &__btn {
+    color: #fff;
+    background-color: #198754;
+    border-color: #198754;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    &:hover {
+      background-color: #157347;
+      border-color: #146c43;
+    }
+  }
+  &__toggle-title {
+    margin: 16px auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -15,3 +58,5 @@
     width: 80%;
   }
 }
+
+

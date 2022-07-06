@@ -33,6 +33,14 @@
       "password": "123dsvdsvsdv",
       "login": "dima2@xcv.dsv",
       "avatar": "assets/img/ava-female.png"
+    },
+    {
+      "id": 1657140491205,
+      "name": "Dmitriy",
+      "sex": "male",
+      "password": "123456",
+      "login": "dima2@f",
+      "avatar": "assets/img/ava-male.jpg"
     }
   ],
   "bank": {

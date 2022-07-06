@@ -1,10 +1,10 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from "../../../services/http.service";
 import {UserType} from "../../../types";
 import { ToastrService } from 'ngx-toastr'
 import authorization from "../../../services/autorization.service";
 import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +13,10 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 
 export class LoginPageComponent implements OnInit {
-  loginModel;
+
+  // @ts-ignore
+  loginModel: FormGroup;
+  // @ts-ignore
   singInModel: FormGroup;
   loginForm: boolean = true;
   users: UserType[] | undefined;
@@ -21,18 +24,22 @@ export class LoginPageComponent implements OnInit {
   constructor(private httpService: HttpService,
               private toastr: ToastrService,
               private router: Router,
-              private builder: FormBuilder,
   ) {
-    this.loginModel = {
-      password: '',
-      login: '',
-    }
-    this.singInModel = this.builder.group({
-      name: ['', Validators.required],
-      sex: ['', Validators.required],
-      password: ['', Validators.required],
-      login: ['', Validators.required]
+    this.loginModel = new FormGroup({
+      password: new FormControl('', [Validators.required, this.passwordValidation ]),
+      login: new FormControl('', [Validators.required, Validators.email]),
+    })
+
+    this.singInModel = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      sex: new FormControl('male', [Validators.required]),
+      password: new FormControl('', [Validators.required, this.passwordValidation ]),
+      login: new FormControl('', [Validators.required, Validators.email]),
     });
+  }
+
+  ngOnInit(): void {
+
   }
 
   async getUser(){
@@ -48,8 +55,8 @@ export class LoginPageComponent implements OnInit {
      this.httpService.getUsers()
       .subscribe( data => {
         this.users = data
-        let user = this.users?.find((user: UserType) => user.login === this.loginModel.login);
-        if (!user || user.password !== this.loginModel.password) {
+        let user = this.users?.find((user: UserType) => user.login === this.loginModel.value.login);
+        if (!user || user.password !== this.loginModel.value.password) {
           this.toastr.error("Login or password is invalid");
           return
         }
@@ -87,6 +94,13 @@ export class LoginPageComponent implements OnInit {
       } );
   }
 
-  ngOnInit(): void {
+  passwordValidation (control: FormGroup) {
+    if (control.value.length < 6) {
+      return {
+        'lengthError': true
+      }
+    }
+    return null
   }
+
 }

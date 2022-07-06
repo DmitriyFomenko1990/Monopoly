@@ -1,58 +1,101 @@
 <div class="container">
-  <form *ngIf="loginForm" class="d-flex flex-column my-4 container rounded-2 p-3 auth-form" >
-    <div class="position-relative d-flex flex-column mb-3">
-      <input type="email"
-             class="login_input rounded-3 p-2"
-             [(ngModel)]="loginModel.login"
-             required
-             placeholder="Email"
-             name="login"  />
+  <form [formGroup]="loginModel" *ngIf="loginForm" class="auth-form" >
+    <div class="auth-form__input-wrap">
+      <input
+        type="email"
+        class="auth-form__input"
+        [ngClass]="loginModel.get('login')?.invalid  && loginModel.get('login')?.touched ? 'auth-form__form-error' : ''"
+        formControlName="login"
+        placeholder="Email"
+        name="login"
+      />
+      <p *ngIf="loginModel.get('login')?.invalid  && loginModel.get('login')?.touched"
+         class="auth-form__err-message"
+      >
+        Invalid email address
+      </p>
     </div>
-    <div class="position-relative d-flex flex-column mb-3">
-      <input type="password"
-             class="password_input rounded-3 p-2"
-             [(ngModel)]="loginModel.password"
-             required
-             placeholder="Password"
-             name="password"  />
+    <div class="auth-form__input-wrap">
+      <input
+        type="password"
+        class="auth-form__input"
+        [ngClass]="loginModel.get('password')?.hasError('lengthError')  && loginModel.get('password')?.touched
+        ? 'auth-form__form-error'
+        : ''"
+        formControlName="password"
+        placeholder="Password"
+        name="password"
+      />
+      <p
+        *ngIf="loginModel.get('password')?.hasError('lengthError')  && loginModel.get('password')?.touched"
+        class="auth-form__err-message"
+      >
+        Password must be 6 or more characters
+      </p>
     </div>
-    <button class="btn btn-success" (click)="login()">Login</button>
+    <button class="auth-form__btn" [disabled]="!loginModel.valid" (click)="login()">Login</button>
     <p class="mx-auto my-3">Don't have an account?</p>
-    <button class="btn btn-success" (click)="loginForm=!loginForm">SingIn</button>
+    <button class="auth-form__btn"  (click)="loginForm=!loginForm">SingIn</button>
   </form>
 
   <form *ngIf="!loginForm" [formGroup]="singInModel" class="d-flex flex-column my-4 container rounded-2 p-3 auth-form" >
-    <div class="position-relative d-flex flex-column mb-3">
-      <input type="email"
-             [email]="true"
-             class="login_input rounded-3 p-2"
-             formControlName="login"
-             placeholder="Email"
-             name="login" />
+    <div class="auth-form__input-wrap">
+      <input
+        type="email"
+        class="auth-form__input"
+        [ngClass]="singInModel.get('login')?.invalid  && singInModel.get('login')?.touched ? 'auth-form__form-error' : ''"
+        formControlName="login"
+        placeholder="Email"
+        name="login"
+      />
+      <p *ngIf="singInModel.get('login')?.invalid  && singInModel.get('login')?.touched"
+         class="auth-form__err-message"
+      >
+        Invalid email address
+      </p>
     </div>
-    <div class="position-relative d-flex flex-column mb-3">
+    <div class="auth-form__input-wrap">
       <input type="password"
-             class="rounded-3 p-2"
-             formControlName="password"
-             placeholder="Password"
-             name="password"  />
+        class="auth-form__input"
+        [ngClass]="singInModel.get('password')?.hasError('lengthError')  && singInModel.get('password')?.touched
+          ? 'auth-form__form-error'
+          : ''"
+        formControlName="password"
+        placeholder="Password"
+        name="password"
+      />
+      <p
+        *ngIf="singInModel.get('password')?.hasError('lengthError')  && singInModel.get('password')?.touched"
+        class="auth-form__err-message"
+      >
+        Password must be 6 or more characters
+      </p>
     </div>
-    <div class="position-relative d-flex flex-column mb-3">
-      <input class="rounded-3 p-2"
-             formControlName="name"
-             placeholder="Name"
-             name="name"  />
+    <div class="auth-form__input-wrap">
+      <input
+        class="auth-form__input"
+        [ngClass]="singInModel.get('name')?.invalid  && singInModel.get('name')?.touched ? 'auth-form__form-error' : ''"
+        formControlName="name"
+        placeholder="Name"
+        name="name"
+      />
+      <p
+        *ngIf="singInModel.get('name')?.invalid  && singInModel.get('name')?.touched"
+        class="auth-form__err-message"
+      >
+        The name cannot be empty.
+      </p>
     </div>
-    <div class="position-relative d-flex align-items-end mb-3">
+    <div class="auth-form__checkbox-wrap">
       <label class="mb-0">Sex:</label>
       <input id="male" class="mx-2 my-0" type="radio" formControlName="sex" name="sex" value="male">
       <label for="male" class="auth-form__radio-btn mb-0">Male</label>
       <input id="female" class="mx-2 my-0" type="radio"  formControlName="sex" name="sex" value="female">
       <label for="female" class="auth-form__radio-btn mb-0">Female</label>
     </div>
-    <button class="btn btn-success" type="submit" [disabled]="!singInModel.valid" (click)="singIn()">SingIn</button>
-    <p class="mx-auto my-3">Already have an account?</p>
-    <button class="btn btn-success" (click)="loginForm=!loginForm">Login</button>
+    <button class="auth-form__btn" type="submit" [disabled]="!singInModel.valid" (click)="singIn()">SingIn</button>
+    <p class="auth-form__toggle-title">Already have an account?</p>
+    <button class="auth-form__btn" (click)="loginForm=!loginForm">Login</button>
   </form>
 
 </div>
