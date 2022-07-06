@@ -5,9 +5,9 @@ import {HttpService} from "../../services/http.service";
 @Component({
   selector: 'app-money-transferring',
   templateUrl: './money-transferring.component.html',
-  styleUrls: ['./money-transferring.component.scss'],
-  providers: [HttpService]
+  styleUrls: ['./money-transferring.component.scss']
 })
+
 export class MoneyTransferringComponent implements OnInit {
   @Input() players: UserType[]  = [];
   @Input() transactions: Transaction[] = [];
@@ -15,7 +15,7 @@ export class MoneyTransferringComponent implements OnInit {
   payer: UserType | null = null;
   recipient: UserType | null = null;
   amount: number | null = null;
-  constructor(private httpService: HttpService,) {
+  constructor(private httpService: HttpService) {
 
   }
 

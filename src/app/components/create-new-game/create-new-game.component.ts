@@ -7,9 +7,9 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-create-new-game',
   templateUrl: './create-new-game.component.html',
-  styleUrls: ['./create-new-game.component.scss'],
-  providers: [HttpService]
+  styleUrls: ['./create-new-game.component.scss']
 })
+
 export class CreateNewGameComponent implements OnInit {
   @Input() showModal: boolean | undefined;
   @Output() closeModal = new EventEmitter<boolean>();

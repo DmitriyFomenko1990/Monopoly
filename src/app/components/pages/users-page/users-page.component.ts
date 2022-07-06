@@ -5,9 +5,9 @@ import {UserType} from "../../../types";
 @Component({
   selector: 'app-users-page',
   templateUrl: './users-page.component.html',
-  styleUrls: ['./users-page.component.scss'],
-  providers: [HttpService],
+  styleUrls: ['./users-page.component.scss']
 })
+
 export class UsersPageComponent implements OnInit {
   users: UserType[] = [];
   showModal: boolean = false;

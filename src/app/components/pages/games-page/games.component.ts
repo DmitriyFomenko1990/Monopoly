@@ -5,9 +5,9 @@ import {GameType} from "../../../types";
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
-  styleUrls: ['./games.component.scss'],
-  providers: [HttpService]
+  styleUrls: ['./games.component.scss']
 })
+
 export class GamesComponent implements OnInit {
   games: GameType[] = [];
   showModal: boolean = false

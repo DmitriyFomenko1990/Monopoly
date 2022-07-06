@@ -6,9 +6,9 @@ import {UserType} from "../../types";
 @Component({
   selector: 'app-create-new-user',
   templateUrl: './create-new-user.component.html',
-  styleUrls: ['./create-new-user.component.scss'],
-  providers: [HttpService],
+  styleUrls: ['./create-new-user.component.scss']
 })
+
 export class CreateNewUserComponent implements OnInit {
   @Input() showModal: boolean | undefined;
   @Output() closeModal = new EventEmitter<boolean>();

@@ -1,5 +1,40 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1656660343975,
+      "name": "Олег",
+      "sex": "male",
+      "avatar": "assets/img/ava-male.jpg"
+    },
+    {
+      "id": 1656660351798,
+      "name": "Даша",
+      "sex": "female",
+      "avatar": "assets/img/ava-female.png"
+    },
+    {
+      "id": 1656791008355,
+      "name": "Dmitriy",
+      "sex": "male",
+      "password": "123",
+      "login": "dima2@mail.ru",
+      "avatar": "assets/img/ava-male.jpg"
+    },
+    {
+      "id": 1656791146214,
+      "name": "Костя",
+      "sex": "female",
+      "avatar": "assets/img/ava-female.png"
+    },
+    {
+      "id": 1656864489143,
+      "name": "xc  xc ",
+      "sex": "female",
+      "password": "123dsvdsvsdv",
+      "login": "dima2@xcv.dsv",
+      "avatar": "assets/img/ava-female.png"
+    }
+  ],
   "bank": {
     "id": 1,
     "name": "json-server",
@@ -7,5 +42,95 @@
     "money": 10000000000,
     "transactions": []
   },
-  "games": []
+  "games": [
+    {
+      "id": 1656660360437,
+      "name": "фцвфцв",
+      "players": [
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "amount": 220000
+        },
+        {
+          "id": 1656660343975,
+          "name": "Олег",
+          "sex": "male",
+          "avatar": "assets/img/ava-male.jpg",
+          "amount": 30000
+        },
+        {
+          "id": 1656660351798,
+          "name": "Даша",
+          "sex": "female",
+          "avatar": "assets/img/ava-female.png",
+          "amount": 30000
+        }
+      ],
+      "createdAt": "01.07.2022",
+      "transactions": [
+        {
+          "id": 1656791059671,
+          "payer": "Bank",
+          "payerId": 1,
+          "recipient": "Олег",
+          "recipientId": 1656660343975,
+          "amount": 15000
+        },
+        {
+          "id": 1656661255424,
+          "payer": "Bank",
+          "payerId": 1,
+          "recipient": "Даша",
+          "recipientId": 1656660351798,
+          "amount": 15000
+        }
+      ]
+    },
+    {
+      "id": 1656791192380,
+      "name": "Дмитрий",
+      "players": [
+        {
+          "id": 1,
+          "name": "Bank",
+          "avatar": "assets/img/bank.png",
+          "amount": 235000
+        },
+        {
+          "id": 1656660351798,
+          "name": "Даша",
+          "sex": "female",
+          "avatar": "assets/img/ava-female.png",
+          "amount": 30000
+        },
+        {
+          "id": 1656791146214,
+          "name": "Костя",
+          "sex": "female",
+          "avatar": "assets/img/ava-female.png",
+          "amount": 15000
+        },
+        {
+          "id": 1656660343975,
+          "name": "Олег",
+          "sex": "male",
+          "avatar": "assets/img/ava-male.jpg",
+          "amount": 15000
+        }
+      ],
+      "createdAt": "02.07.2022",
+      "transactions": [
+        {
+          "id": 1656791312062,
+          "payer": "Bank",
+          "payerId": 1,
+          "recipient": "Даша",
+          "recipientId": 1656660351798,
+          "amount": 15000
+        }
+      ]
+    }
+  ]
 }

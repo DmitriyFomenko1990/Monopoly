@@ -1,11 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {HttpService} from "../../services/http.service";
 
 @Component({
   selector: 'app-transactions-window',
   templateUrl: './transactions-window.component.html',
-  styleUrls: ['./transactions-window.component.scss'],
-  providers: [HttpService],
+  styleUrls: ['./transactions-window.component.scss']
 })
 
 export class TransactionsWindowComponent implements OnInit {
